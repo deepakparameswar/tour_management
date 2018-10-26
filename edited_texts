@@ -1,0 +1,190 @@
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">
+                        <img src="admin_area/product_images/goa.jpg" alt="GOA" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Hindu Temple in Goa</a></h3>
+                            <p class="price">$200</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                     <i class="fa fa-shopping-cart"></i>
+                                     Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                        <img src="admin_area/product_images/KulluManali.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Kullu Manali</a></h3>
+                            <p class="price">$800</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+           <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                        <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                        <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                    <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                    <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                    <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                <i class="fa fa-shopping-cart"></i>
+                                Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+
+                </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
+
+            <div class="col-sm-4 col-sm-6 single"> <!-- col-sm-4 col-sm-6 single starts -->
+
+                <div class="product"><!-- product starts -->
+
+                    <a href="details.png">      
+                    <img src="admin_area/product_images/himalayam.jpg" alt="Kullu Manali" class="img-responsive">
+                        <div class="text"> <!-- text starts-->
+                            <h3><a href="details.php">Himalayam</a></h3>
+                            <p class="price">$500</p>
+                            <p class="buttons">
+                                <a href="details.php" class="btn btn-default">View Details</a>
+                                <a href="details.php" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to cart
+                                </a>
+                            </p>
+
+                        </div><!-- text ends-->
+                    </a>
+            </div> <!-- product ends -->
+
+            </div> <!-- col-sm-4 col-sm-6 single ends -->
