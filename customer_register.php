@@ -1,10 +1,3 @@
-<?php
-    include("includes/db.php");
-
-    include("functions/functions.php");
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -71,14 +64,14 @@
 
                 <div class="padding-nav"> <!-- padding-nav starts -->
                     <ul class="nav navbar-nav navbar-left"> <!-- nav navbar-nav navbar-left starts-->
-                        <li class="active">
+                        <li>
                             <a href="index.php">Home</a>
                         </li>
                         <li>
                             <a href="Order_now.php">Order now</a>
                         </li>
                         <li>
-                            <a href="customer/my_account.php">My Account</a>
+                            <a href="checkout.php">My Account</a>
                         </li>
                         <li>
                             <a href="cart.php">Shopping Cart</a>
@@ -118,179 +111,133 @@
         </div> <!-- container starts -->
     </div><!-- navbar navbar-default ends -->
 
-    <div class="container" id="slider"> <!-- container starts -->
-       
-        <div class="col-md-12"> <!-- col-md-12 starts -->
-           
-            <div id="myCarousel" class="carousel slide" data-ride="carousel"> <!-- carousel slide starts -->
-            
-                <ol class="carousel-indicators"> <!-- carousel-indicators starts -->
-                
-                    <li data-target="#myCarousel" sata-slide-to="0" class="active"> </li>
 
-                    <li data-target="#myCarousel" sata-slide-to="1"> </li>
+    <div id="content"> <!-- content starts-->
 
-                    <li data-target="#myCarousel" sata-slide-to="2"> </li>
-
-                    <li data-target="#myCarousel" sata-slide-to="3"> </li>
-                
-                </ol> <!-- carousel-indicators ends -->
-                
-                <div class="carousel-inner"> <!-- crousel-inner starts -->
-
-                    <?php
-
-                        $get_slides="select * from slider LIMIT 0,1";
-
-                        $run_slides = mysqli_query($con,$get_slides);
-
-                        while($row_slides=mysqli_fetch_array($run_slides)){
-                            $slide_name= $row_slides['slide_name'];
-                            $slide_image= $row_slides['slide_image'];
-
-                            echo"
-                                <div class='item active'>
-                                    <img src='admin_area/slides_images/$slide_image'>
-                                </div>
-                            ";
-                        }
-
-                    ?> 
-
-                    <?php
-                        
-                        $get_slides="select * from slider LIMIT 1,3 ";
-
-                        $run_slides = mysqli_query($con,$get_slides);
-
-                        while($row_slides=mysqli_fetch_array($run_slides)){
-                            
-                            $slide_name = $row_slides['slide_name'];
-                            $slide_image = $row_slides['slide_image'];
-
-                            echo"
-                                <div class='item'>
-                                    
-                                    <img src='admin_area/slides_images/$slide_image'>
-                                
-                                </div>
-                            ";
-
-                        }
-
-                    ?>
-
-                </div><!-- crousel-inner ends -->
-
-                <a href="#myCarousel" data-slide="prev" class="left carousel-control"> <!--left carousel-control starts -->
-
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-
-                    <span class="sr-only">Previous</span>
-
-                </a><!--left carousel-control Ends -->
-
-                <a href="#myCarousel" data-slide="next" class="right carousel-control"> <!--right carousel-control starts -->
-
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-
-                    <span class="sr-only">Next</span>
-
-                </a><!--right carousel-control Ends -->
-
-
-            </div> <!-- carousel slide ends -->
-
-        </div> <!-- col-md-12 ends -->
-
-    </div> <!-- container ends -->
-
-    <div class="advantages"> <!-- advantages starts -->
-        
         <div class="container"> <!-- container starts -->
 
-            <div class="same-height-row"> <!-- same-height-row starts -->
-                
-                <div class="col-sm-4"> <!-- col-sm-4 starts -->
+            <div class="col-md-12"><!-- col-md-12 starts -->
+
+                <ul class="breadcrumb"><!-- breadcrumb starts-->
+                    <li>
+                        <a href="index.php">Home</a>
+                    </li>
+                    <li>Register</li>
+                </ul><!-- breadcrumb ends-->
+
+            </div><!-- col-md-12 ends -->
+
+            <div class="col-md-3"><!-- col-md-3 starts -->
+
+                <?php
+                    include("includes/sidebar.php");
+                ?>
+
+            </div><!-- col-md-3 ends -->
+
+            <div class="col-md-9"><!-- col-md-9 starts -->
+
+                <div class="box"><!-- box starts -->
+            
+                    <div class="box-header"><!-- box-header starts -->
+
+                        <center>
+                        
+                            <h2>Register A New Account</h2>
+                        
+                        </center>
+
+                    </div><!-- box-header ends -->
+
+                    <form action="customer_registere.php" method="post" enctype="multipart/form-dataSSS"><!-- form starts -->
                     
-                    <div class="box same-height"><!-- box same-height starts -->
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Name</label>
 
-                        <div class="icon">
-                            <i class="fa fa-heart"></i>
+                            <input type="text" class="form-control" name="c_name" required>
+
+                        </div><!-- form-group ends -->
+
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Email</label>
+
+                            <input type="text" class="form-control" name="c_email" required>
+
+                        </div><!-- form-group ends -->
+                    
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Password</label>
+
+                            <input type="text" class="form-control" name="subject" required>
+
+                        </div><!-- form-group ends -->
+                        
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Country</label>
+
+                            <input type="text" class="form-control" name="c_country" required>
+
+                        </div><!-- form-group ends -->
+
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer City</label>
+
+                            <input type="text" class="form-control" name="c_city" required>
+
+                        </div><!-- form-group ends -->
+
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Contact</label>
+
+                            <input type="text" class="form-control" name="subject" required>
+
+                        </div><!-- form-group ends -->
+
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Address</label>
+
+                            <input type="text" class="form-control" name="c_address" required>
+
+                        </div><!-- form-group ends -->
+
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Customer Image</label>
+
+                            <input type="file" class="form-control" name="c_image" required>
+
+                        </div><!-- form-group ends -->
+                        
+
+                        <div class="text-center">
+                        
+                            <button class="btn btn-primary" type="submit" name="register">
+                            
+                                <i class="fa fa-user-md"></i>Send Message
+                            
+                            </button>
+                        
                         </div>
 
-                        <h3><a href="#">WE LOVE OUR CUSTOMER</a></h3>
-                        <p>We are known to provide best possible service ever</p>
 
-                    </div> <!-- box same-height ends -->
+                    </form><!-- form ends -->
+            
+                </div><!-- box ends -->
+            
+            </div><!-- col-md-9 ends -->
 
-                </div> <!-- col-sm-4 ends -->
-
-                <div class="col-sm-4"> <!-- col-sm-4 starts -->
-
-                    <div class="box same-height"><!-- box same-height starts -->
-
-                        <div class="icon">
-                           <i class="fa fa-tags"></i>
-                        </div>
-
-                        <h3><a href="#">BEST PRICES</a></h3>
-                        <p>You can check on all other sites about the prices and then compare with our us</p>
-
-                    </div> <!-- box same-height ends -->
-
-                </div> <!-- col-sm-4 ends -->
-
-                <div class="col-sm-4"> <!-- col-sm-4 starts -->
-
-                    <div class="box same-height"><!-- box same-height starts -->
-
-                        <div class="icon">
-                            <i class="fa fa-tags"></i>
-                        </div>
-
-                        <h3><a href="#">100% SATISFACTION GUARANTEED</a></h3>
-                        <p>Free return on everything for 3 months.</p>
-
-                    </div> <!-- box same-height ends -->
-
-                </div> <!-- col-sm-4 ends -->
-
-            </div> <!-- same-height-row ends -->
 
         </div> <!-- container ends -->
 
-    </div> <!-- advantages ends -->
-
-    <div id="hot"> <!-- hot starts -->
-        
-        <div class="box"> <!-- box starts -->
-
-            <div class="container"> <!-- container strats-->
-
-                <div class="col-md-12"> <!-- col-md-12 starts -->
-
-                    <h2>Latest Packages of this week</h2>
-
-                </div> <!-- col-md-12 ends -->
-
-            </div> <!-- container ends-->
-
-        </div> <!-- box ends -->
-
-    </div> <!-- hot ends -->
-
-    <div id="content" class="container"> <!-- container starts -->
-
-        <div class="row"> <!-- row starts -->
-
-            <?php
-                getPro();
-            ?>
-        
-        </div> <!-- row ends -->
-
-    </div> <!-- container ends -->
+    </div> <!-- content ends-->
+    
 
     <?php
         include("includes/footer.php");

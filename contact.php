@@ -67,7 +67,7 @@
                         <li>
                             <a href="index.php">Home</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="Order_now.php">Order now</a>
                         </li>
                         <li>
@@ -76,7 +76,7 @@
                         <li>
                             <a href="cart.php">Shopping Cart</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="contact.php">Contact Us</a>
                         </li>
                     </ul> <!-- nav navbar-nav navbar-left ends-->
@@ -122,7 +122,7 @@
                     <li>
                         <a href="index.php">Home</a>
                     </li>
-                    <li>Order now</li>
+                    <li>Contact Us</li>
                 </ul><!-- breadcrumb ends-->
 
             </div><!-- col-md-12 ends -->
@@ -137,91 +137,72 @@
 
             <div class="col-md-9"><!-- col-md-9 starts -->
 
-                <div class="row" id=productMain><!-- row starts -->
+                <div class="box"><!-- box starts -->
+            
+                    <div class="box-header"><!-- box-header starts -->
 
-                    <div class="col-sm-6"><!-- col-sm-6 starts -->
+                        <center>
+                        
+                            <h2>Contact Us</h2>
 
-                        <div id="mainImage"><!-- mainimage starts -->
+                            <p class="text-muted">if you have any questions, please feel free to contact us, our customer service is working for 24/7 hrs</p>
+                        
+                        </center>
 
-                            <div id="myCarousel" class="crousel slide" data-ride="carousel">
+                    </div><!-- box-header ends -->
 
-                                <ol class="carousel-indicators"><!-- carousel-indicators starts -->
+                    <form action="contact.php" method="post"><!-- form starts -->
+                    
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Name</label>
 
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-                                    
-                                </ol><!-- carousel-indicators ends -->
+                            <input type="text" class="form-control" name="name" required>
 
-                                <div class="carousel-inner"><!-- carousel-inner starts -->
+                        </div><!-- form-group ends -->
 
-                                    <div class="item active">
-                                        <center>
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Email</label>
 
-                                            <img src="admin_area/product_images/product.1.jpg" alt="Product 1" class="img-responsive">
-                                            
-                                        </center>
-                                    </div>
+                            <input type="text" class="form-control" name="email" required>
 
-                                    <div class="item">
+                        </div><!-- form-group ends -->
+                    
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Subject</label>
 
-                                        <img src="admin_area/product_images/product.2.jpg" alt="Product 1" class="img-responsive">
-                                            
-                                    </div>
-                                    
-                                    <div class="item">
-                                        
-                                        <img src="admin_area/product_images/product.3.jpg" alt="Product 1" class="img-responsive">
-                                            
-                                    </div>
+                            <input type="text" class="form-control" name="subject" required>
 
-                                </div><!-- carousel-inner ends -->
+                        </div><!-- form-group ends -->
+                        
+                        <div class="form-group"><!-- form-group starts -->
+                        
+                            <label>Message</label>
 
+                            <textarea name="message" class="form-control"></textarea>
 
-                            </div>
+                        </div><!-- form-group ends -->
 
-                        </div><!-- mainimage ends -->
-
-                    </div><!-- col-sm-6 ends -->
-
-                    <div class="col-sm-6"><!-- col-sm-6 starts -->
-
-                        <div class="box"><!-- box starts -->
-
-                            <h1 class="text-center">Goa</h1>
-
-                            <form action="details.php" method="post" class="form-horzontal"><!-- form-horzontal starts-->
-
-                                <div class="form-group"><!-- form-group starts -->
-
-                                    <label class="col-md-5 control-label">Days</label>
-
-                                    <div class="col-md-7"><!-- col-md-7 starts -->
-
-                                        <select class="form-control">
-                                            <option>1</option>
-                                        </select> 
-
-                                    </div><!-- col-md-7 ends -->        
-
-                                </div><!-- form-group ends -->
-                                
-                                <div class="from-group">
-                                    
-                                    <input type="text">
-                                    
-                                </div>
-
-                            </form><!-- form-horzontal ends-->
-
-                        </div><!-- box ends -->
-
-                    </div><!-- col-sm-6 ends -->
+                        <div class="text-center">
+                        
+                            <button class="btn btn-primary" type="submit" name="submit">
+                            
+                                <i class="fa fa-user-md"></i>Send Message
+                            
+                            </button>
+                        
+                        </div>
 
 
-                </div><!-- row ends -->
 
+                    </form><!-- form ends -->
+            
+                </div><!-- box ends -->
+            
             </div><!-- col-md-9 ends -->
+
 
         </div> <!-- container ends -->
 

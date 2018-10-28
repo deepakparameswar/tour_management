@@ -5,18 +5,18 @@
 
                 <h4>Pages</h4>
                 <ul><!-- ul starts-->
-                    <li><a href="cart.php">Shopping Cart</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
-                    <li><a href="Order_now.php">Order Now</a></li>
-                    <li><a href="checkout.php">My Account</a></li>
+                    <li><a href="../cart.php">Shopping Cart</a></li>
+                    <li><a href="../contact.php">Contact Us</a></li>
+                    <li><a href="../Order_now.php">Order Now</a></li>
+                    <li><a href="my_account.php">My Account</a></li>
                 </ul><!-- ul ends-->
 
                 <hr>
 
                 <h4>User Section</h4>
                 <ul><!-- ul starts-->
-                    <li><a href="checkout.php">Login</a></li>
-                    <li><a href="customer_register.php">Register</a></li>
+                    <li><a href="../checkout.php">Login</a></li>
+                    <li><a href="../customer_register.php">Register</a></li>
                 </ul><!-- ul ends-->
 
                 <hr class="hidden-md hidden-lg hidden-sm">
@@ -51,7 +51,7 @@
                     <strong>Deepak Parameswar</strong>
                 </p><!-- p ends -->
 
-                <a href="contact.php"> Go to Contact Us</a>
+                <a href="../contact.php"> Go to Contact Us</a>
 
                 <hr class="hidden-md hidden-lg">
 
