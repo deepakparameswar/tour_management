@@ -137,45 +137,76 @@
 
             <div class="col-md-9"><!-- col-md-9 starts -->
             
-                <div class="box"><!-- box starts -->
+                <div class="box"><!-- box stsrts -->
                 
-                    <?php
+                    <h1 align="center"> Please Confirm Your Payment </h1>
 
-                        if(isset($_GET['my_orders'])){
+                    <form action="confirm.php" method="post" enctype="multipart/form-data">
+                    
+                        <div class="form-group">
+                        
+                            <label>Invoice No:</label>
+                            <input type="text" class="form-control" name="invoice_no" required>
+                        
+                        </div>
 
-                            include("my_orders.php");
+                        <div class="form-group">
+                        
+                            <label>Amount Send:</label>
+                            <input type="text" class="form-control" name="amount_sent" required>
+                        
+                        </div>
 
-                        }
+                        <div class="form-group">
+                        
+                            <label>Select Payment Mode:</label>
+                            <select name="payment_mode" class="form-control">
+                            
+                                <option>Select Payment Mode</option>
+                                <option>Bank Code</option>
+                                <option>Paypal</option>
+                                <option>Western Union</option>
 
-                        if (isset($_GET['pay_offline'])) {
+                            </select>
+                        </div>
 
-                            include("pay_offline.php");
+                        <div class="form-group">
+                        
+                            <label>Transaction/Reference Id:</label>
+                            <input type="text" class="form-control" name="ref_no" required>
+                        
+                        </div>
 
-                        }
+                        <div class="form-group">
+                        
+                            <label>Paypal</label>
+                            <input type="text" class="form-control" name="invoice_no" required>
+                        
+                        </div>
 
-                        if(isset($_GET['edit_account'])){
+                        <div class="form-group">
+                        
+                            <label>Western Union</label>
+                            <input type="text" class="form-control" name="invoice_no" required>
+                        
+                        </div>
 
-                            include("edit_account.php");
+                        <div class="text-center">
+                        
+                            <button type="submit" name="confirm_payment" class="btn btn-primary btn-lg">
+                            
+                                <i class="fa fa-user-md"></i>Confirm Payment
 
-                        }
+                            </button>
 
-                        if(isset($_GET['change_pass'])){
+                        </div>
 
-                            include("change_pass.php");
+                    
+                    </form>
 
-                        }
-
-                        if(isset($_GET['delete_account'])){
-
-                            include("delete_account.php");
-
-                        }
-
-                    ?>
-                
                 </div><!-- box ends -->
             
-            </div>
+            </div><!-- col-md-9 ends -->
 
         </div> <!-- container ends -->
 
