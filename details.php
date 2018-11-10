@@ -1,3 +1,49 @@
+<?php
+    include("includes/db.php");
+
+    include("functions/functions.php");
+?>
+
+<?php
+
+    if(isset($_GET['pro_id'])){
+
+        $product_id = $_GET['pro_id'];
+
+        $get_product = "select * from products where product_id='$product_id'";
+
+        $run_product = mysqli_query($con,$get_product);
+
+        $row_product = mysqli_fetch_array($run_product);
+
+        $p_cat_id = $row_product['p_cat_id'];
+
+        $p_title = $row_product['product_title'];
+
+        $pro_price = $row_product['product_price'];
+
+        $pro_desc = $row_product['product_desc'];
+
+        $pro_img1 = $row_product['product_img1'];
+
+        $pro_img2 = $row_product['product_img2'];
+
+        $pro_img3 = $row_product['product_img3'];
+        
+        $days = $row_product['days'];
+
+        $get_p_cat = "select * from packages_categories where p_cat_id='$p_cat_id'";
+
+        $run_p_cat = mysqli_query($con,$get_p_cat);
+
+        $row_p_cat = mysqli_fetch_array($run_p_cat);
+
+        $p_cat_title = $row_p_cat['p_cat_title'];
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,27 +61,11 @@
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
-        
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <script>
-            $(document).ready(function(){
-            
-                $( "#shootdate1" ).datepicker({
-                    
-                    onClose: function() {
-                    var date2 = $('#shootdate1').datepicker('getDate');
-                    date2.setDate(date2.getDate()+5);
-                    $( "#shootdate2" ).datepicker("setDate", date2);
-                    }
-                });
-                    $( "#shootdate2" ).datepicker();
-                    $('#shootdate2').datepicker('disable');
-            });
-        </script>
-    
 
     </head>
     
@@ -164,112 +194,132 @@
 
                     <div class="col-sm-6"><!-- col-sm-6 starts -->
 
-                        <div id="mainImage"><!-- mainimage starts -->
+                        <?php
 
-                            <div id="myCarousel" class="crousel slide" data-ride="carousel">
+                            echo"
+                            
+                            <div id='mainImage'>
 
-                                <ol class="carousel-indicators"><!-- carousel-indicators starts -->
+                                <div id='myCarousel' class='crousel slide' data-ride='carousel'>
 
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+                                    <ol class='carousel-indicators'>
+
+                                        <li data-target='#myCarousel' data-slide-to='0' class='active'></li>
+                                        <li data-target='#myCarousel' data-slide-to='1' class='active'></li>
+                                        <li data-target='#myCarousel' data-slide-to='2' class='active'></li>
                                     
-                                </ol><!-- carousel-indicators ends -->
+                                    </ol>
 
-                                <div class="carousel-inner"><!-- carousel-inner starts -->
+                                    <div class='carousel-inner'>
 
-                                    <div class="item active">
-                                        <center>
+                                        <div class='item active'>
+                                            <center>
 
-                                            <img src="admin_area/product_images/product.1.jpg" alt="Product 1" class="img-responsive">
+                                                <img src='admin_area/product_images/$pro_img1' alt='Product 1' class='img-responsive'>
                                             
-                                        </center>
-                                    </div>
+                                            </center>
+                                        </div>
 
-                                    <div class="item">
+                                        <div class='item'>
 
-                                        <img src="admin_area/product_images/product.2.jpg" alt="Product 1" class="img-responsive">
+                                            <img src='admin_area/product_images/$pro_img2' alt='Product 1' class='img-responsive'>
                                             
-                                    </div>
+                                        </div>
                                     
-                                    <div class="item">
+                                        <div class='item'>
                                         
-                                        <img src="admin_area/product_images/product.3.jpg" alt="Product 1" class="img-responsive">
+                                            <img src='admin_area/product_images/$pro_img3' alt='Product 1' class='img-responsive'>
                                             
+                                        </div>
+
                                     </div>
 
-                                </div><!-- carousel-inner ends -->
 
+                                </div>
 
                             </div>
 
-                        </div><!-- mainimage ends -->
+
+                            ";
+
+                        ?>
 
                     </div><!-- col-sm-6 ends -->
 
                     <div class="col-sm-6"><!-- col-sm-6 starts -->
 
-                        <div class="box"><!-- box starts -->
+                        <?php
 
-                            <h1 class="text-center">Goa</h1>
+                            echo"
+                            
+                                <div class='box'>
 
-                            <form action="details.php" method="post" class="form-horzontal"><!-- form-horzontal starts-->
+                                    <h1 class='text-center'>$p_title</h1>
 
-                                <div class="form-group"><!-- form-group starts -->
+                                    <br>
 
-                                    <label class="col-md-5 control-label">Days</label>
+                                    <form action='details.php' method='post' class='form-horzontal'>
 
-                                    <div class="col-md-7"><!-- col-md-7 starts -->
+                                        <div class='form-group'>
 
-                                        <input type="text">
+                                            <label class='col-md-5 control-label'>From </label>
 
-                                    </div><!-- col-md-7 ends -->        
+                                            <div class='col-md-7'>
 
-                                </div><!-- form-group ends -->
+                                                <input required type='text' name='shootdate1' id='shootdate1' title='Choose your desired date'/>
+                                                
+                                            </div>
 
-                                <br>
-                                <br>
+                                        </div>
 
-                                <div class="form-group"><!-- form-group starts -->
+                                        <br>
+                                        <br>
 
-                                    <label class="col-md-5 control-label">From </label>
+                                        <div class='form-group'>
 
-                                    <div class="col-md-7"><!-- col-md-7 starts -->
+                                            <label class='col-md-5 control-label'>Price </label>
 
-                                       <input required type="text" name="shootdate1" id="shootdate1" title="Choose your desired date" />
-                                       
-                                    </div><!-- col-md-7 ends -->        
+                                            <div class='col-md-7'>
 
-                                </div><!-- form-group ends -->
+                                                <p class='price'>$$pro_price </p>
+                                                
+                                            </div>
+                                        
+                                        </div>
 
-                                <br>
+                                        <br>
 
-                                <div class="form-group"><!-- form-group starts -->
+                                        <div class='form-group'>
 
-                                    <label class="col-md-5 control-label">To </label>
+                                            <label class='col-md-5 control-label'>Days </label>
 
-                                    <div class="col-md-7"><!-- col-md-7 starts -->
+                                            <div class='col-md-7'>
 
-                                        <input required type="text" name="shootdate2" id="shootdate2"/> 
+                                                <p class='price'>$days </p>
+                                                
+                                            </div>
+                                        
+                                        </div>
 
-                                    </div><!-- col-md-7 ends -->        
+                                        <br>
 
-                                </div><!-- form-group ends -->
+                                        <p class='text-center buttons'>
+                                            
+                                            <button class='btn btn-primary' type='submit'>
+                                        
+                                                <i class='fa fa-shopping-cart'></i>Add to Cart
+                                            </button>
+                                        
+                                        </p>
 
-                                <br>
-                                <br>
+                                    </form>
 
-                                <p class="price">$500</p>
-                                <p class="text-center buttons"> <!-- textcenter buttons starts-->
-                                    <button class="btn btn-primary" type="submit">
-                                        <i class="fa fa-shopping-cart"></i>Add to Cart
-                                    </button>
-                                </p><!-- textcenter buttons ends-->
+                                </div>
+                            
+                            ";
 
-                            </form><!-- form-horzontal ends-->
-
-                        </div><!-- box ends -->
-
+                        ?>
+                        
                     </div><!-- col-sm-6 ends -->
 
                 </div><!-- row ends -->
@@ -317,8 +367,24 @@
         include("includes/footer.php");
     ?>
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+
+    $( function() {
+	   			$( "#shootdate1" ).datepicker({
+	   				minDate: 0
+	   			});
+	  		});
+    </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
+
+
+
     </body>
 
 </html>

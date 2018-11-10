@@ -26,11 +26,30 @@
             <div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 starts -->
               
                 <h4>Top Packages Categories</h4>
-                <ul><!-- ul starts-->
-                    <li><a href="#">Adventures</a></li>
-                    <li><a href="#">Romance</a></li>
-                    <li><a href="#">wildlife</a></li>
-                    <li><a href="#">Music & DJ</a></li>
+                <ul><!-- ul starts ; Dynamic by php-->
+                    
+                    <?php
+
+                        $get_p_cats = "select * from packages_categories";
+
+                        $run_p_cats = mysqli_query($con,$get_p_cats);
+
+                        while($row_p_cats=mysqli_fetch_array($run_p_cats)){
+
+                            $p_cat_id = $row_p_cats['p_cat_id'];
+                            
+                            $p_cat_title = $row_p_cats['p_cat_title'];
+
+                            echo"
+                            
+                                <li><a href='shop.php?p_cat=$p_cat_id'>$p_cat_title</a></li>
+                            
+                            ";
+
+                        }
+
+                   ?>
+
                 </ul><!-- ul ends-->
 
                 <hr class="hidden-md hidden-lg">
@@ -64,11 +83,15 @@
                 Travel is the movement of people between distant geographical locations. 
                 </p>
 
-                <form action="" method="post"><!-- form starts -->
+                <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=blogspot/AaAXPx', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"><!-- form starts -->
 
                     <div class="input-group"><!-- form starts -->
 
                         <input type="text" class="form-control" name="email">
+
+                            <input type="hidden" value="blogspot/AaAXPx" name="uri"/>
+                            <input type="hidden" name="loc" value="en_US"/>
+
                         <span class="input-group-btn"> <!-- input-group-btn starts -->
                             <input type="submit" value="subscribe" class="btn btn-default">
                         </span><!-- input-group-btn ends -->
