@@ -66,6 +66,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+        
 
     </head>
     
@@ -78,7 +79,7 @@
                     Welcome :Guest
                 </a>
                 <a href="#">
-                    Sopping Cart Total Price: $100, Total Item 2
+                    Sopping Cart Total Price: <?php total_price(); ?>, Total Item <?php items(); ?>
                 </a>
             </div> <!-- col-md-6 offer ends -->
 
@@ -137,7 +138,7 @@
 
                 <a href="cart.php" class="btn btn-primary navbar-btn right"> <!-- btn btn-primary navbar-btn right starts -->
                     <i class="fa fa-shopping-cart"></i>
-                    <span>4 items in cart</span>
+                    <span><?php items(); ?> items in cart</span>
                 </a> <!-- btn btn-primary navbar-btn right starts -->
 
                 <div class="navbar-collapse collapse right"> <!-- navbar-collapse collapse right starts -->
@@ -247,18 +248,32 @@
                     </div><!-- col-sm-6 ends -->
 
                     <div class="col-sm-6"><!-- col-sm-6 starts -->
-
-                        <?php
-
-                            echo"
                             
-                                <div class='box'>
+                            <div class='box'>
 
-                                    <h1 class='text-center'>$p_title</h1>
+                                    <h1 class='text-center'><?php echo $p_title ?></h1>
 
                                     <br>
 
-                                    <form action='details.php' method='post' class='form-horzontal'>
+                                     <?php add_cart(); ?>
+
+                                     <form action="details.php?add_cart=<?php echo $product_id; ?>" method="post" class="form-horzontal">
+
+                                        <br>
+
+                                        <div class='form-group'>
+
+                                            <label class='col-md-5 control-label'>No of Tickets</label>
+
+                                            <div class='col-md-7'>
+
+                                                <input required type='text' name='qty' title='Choose your quantity of tickets'/>
+                                                
+                                            </div>
+
+                                        </div>
+
+                                        <br>
 
                                         <div class='form-group'>
 
@@ -266,7 +281,7 @@
 
                                             <div class='col-md-7'>
 
-                                                <input required type='text' name='shootdate1' id='shootdate1' title='Choose your desired date'/>
+                                                <input required type='date' name='shootdate' id='shootdate1' title='Choose your desired date'/>
                                                 
                                             </div>
 
@@ -281,7 +296,7 @@
 
                                             <div class='col-md-7'>
 
-                                                <p class='price'>$$pro_price </p>
+                                                <p class='price'>$<?php echo $pro_price; ?> </p>
                                                 
                                             </div>
                                         
@@ -295,7 +310,7 @@
 
                                             <div class='col-md-7'>
 
-                                                <p class='price'>$days </p>
+                                                <p class='price'><?php echo $days ?></p>
                                                 
                                             </div>
                                         
@@ -315,10 +330,6 @@
                                     </form>
 
                                 </div>
-                            
-                            ";
-
-                        ?>
                         
                     </div><!-- col-sm-6 ends -->
 
@@ -372,14 +383,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script>
 
-    $( function() {
-	   			$( "#shootdate1" ).datepicker({
-	   				minDate: 0
-	   			});
-	  		});
-    </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
 

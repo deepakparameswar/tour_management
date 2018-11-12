@@ -31,7 +31,7 @@
                     Welcome :Guest
                 </a>
                 <a href="#">
-                    Sopping Cart Total Price: $100, Total Item 2
+                    Sopping Cart Total Price: <?php total_price(); ?>, Total Item 2
                 </a>
             </div> <!-- col-md-6 offer ends -->
 

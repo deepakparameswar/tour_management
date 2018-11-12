@@ -33,7 +33,7 @@
                     Welcome :Guest
                 </a>
                 <a href="#">
-                    Sopping Cart Total Price: $100, Total Item 2
+                    Sopping Cart Total Price: $100, Total Item <?php items() ?>
                 </a>
             </div> <!-- col-md-6 offer ends -->
 
@@ -92,7 +92,7 @@
 
                 <a href="cart.php" class="btn btn-primary navbar-btn right"> <!-- btn btn-primary navbar-btn right starts -->
                     <i class="fa fa-shopping-cart"></i>
-                    <span>4 items in cart</span>
+                    <span><?php items() ?> items in cart</span>
                 </a> <!-- btn btn-primary navbar-btn right starts -->
 
                 <div class="navbar-collapse collapse right"> <!-- navbar-collapse collapse right starts -->

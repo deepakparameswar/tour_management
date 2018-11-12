@@ -22,12 +22,12 @@
         $admin_id = $row_admin['admin_id'];
 
         $admin_name = $row_admin['admin_name'];
-
+        /*
         $get_packages = "select * from packages";
         $run_packages = mysqli_query($con,$get_packages);
         $count_packages = mysqli_num_rows($run_packages);
         
-        /*
+        
         $get_customers = "select * from customers";
         $run_customers = mysqli_query($con,$get_customers);
         $count_customers = mysqli_num_rows($run_customers);
