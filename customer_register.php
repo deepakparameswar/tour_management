@@ -1,7 +1,11 @@
 <?php
+
+    session_start();
+
     include("includes/db.php");
 
     include("functions/functions.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +32,19 @@
         <div class="container"><!-- container starts -->
             <div class="col-md-6 offer"><!-- col-md-6 offer starts -->
                 <a href="#" class="btn btn-success btn-sm">
-                    Welcome :Guest
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+                            
+                            echo"Welcome :Guest";
+
+                        }else {
+                            
+                            echo "Welcome : ".$_SESSION['customer_email']. "";
+
+                        }
+
+                    ?>
                 </a>
                 <a href="#">
                     Sopping Cart Total Price: <?php total_price(); ?>, Total Item <?php items(); ?>
@@ -38,9 +54,36 @@
             <div class="col-md-6"> <!-- col-md-6 starts -->
                 <ul class="menu"><!-- menu starts -->
                     <li><a href="customer_register.php">Register</a></li> 
-                    <li><a href="checkout.php">My Account</a></li> 
+                    <li>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
+                                
+                            }
+
+                        ?>
+                    </li> 
                     <li><a href="cart.php">Go to Cart</a></li>
-                    <li><a href="checkout.php">Login</a></li>
+                    
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+
+                            echo "<li><a href='login.php'>Login</a></li>";
+
+                        }else{
+
+                            echo "<li><a href='logout.php'>LogOut</a></li>";
+
+                        }
+                    ?>
+
                 </ul><!-- menu starts -->
             </div><!-- col-md-6 ends -->
         </div><!-- container ends -->
@@ -77,7 +120,19 @@
                             <a href="Order_now.php">Order now</a>
                         </li>
                         <li>
-                            <a href="checkout.php">My Account</a>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
+                                
+                            }
+
+                            ?>
                         </li>
                         <li>
                             <a href="cart.php">Shopping Cart</a>
@@ -155,7 +210,7 @@
 
                     </div><!-- box-header ends -->
 
-                    <form action="customer_registere.php" method="post" enctype="multipart/form-dataSSS"><!-- form starts -->
+                    <form action="customer_register.php" method="post" enctype="multipart/form-dataSSS"><!-- form starts -->
                     
                         <div class="form-group"><!-- form-group starts -->
                         
@@ -169,7 +224,7 @@
                         
                             <label>Customer Email</label>
 
-                            <input type="text" class="form-control" name="c_email" required>
+                            <input type="email" class="form-control" name="c_email" required>
 
                         </div><!-- form-group ends -->
                     
@@ -177,7 +232,7 @@
                         
                             <label>Customer Password</label>
 
-                            <input type="text" class="form-control" name="subject" required>
+                            <input type="password" class="form-control" name="c_pass" required>
 
                         </div><!-- form-group ends -->
                         
@@ -201,7 +256,7 @@
                         
                             <label>Customer Contact</label>
 
-                            <input type="text" class="form-control" name="subject" required>
+                            <input type="text" class="form-control" name="c_contact" required>
 
                         </div><!-- form-group ends -->
 
@@ -217,16 +272,16 @@
                         
                             <label>Customer Image</label>
 
-                            <input type="file" class="form-control" name="c_image" required>
+                            <input type="file" name="c_image" class="form-control" required>
 
-                        </div><!-- form-group ends -->
+                         </div><!-- form-group ends -->
                         
 
                         <div class="text-center">
                         
                             <button class="btn btn-primary" type="submit" name="register">
                             
-                                <i class="fa fa-user-md"></i>Send Message
+                                <i class="fa fa-user-md"></i>Register
                             
                             </button>
                         
@@ -254,3 +309,63 @@
     </body>
 
 </html>
+
+<?php 
+
+    if(isset($_POST['register'])){
+
+        $c_name = $_POST['c_name'];
+
+        $c_email = $_POST['c_email'];
+
+        $c_pass = $_POST['c_pass'];
+
+        $c_country = $_POST['c_country'];
+
+        $c_city = $_POST['c_city'];
+
+        $c_contact = $_POST['c_contact'];
+
+        $c_address = $_POST['c_address'];
+
+
+        $c_image = $_FILES['c_image']['name'];
+
+        $c_image_tmp = $_FILES['c_image']['tmp_name'];
+
+
+        $c_ip =  getRealUserIp();
+
+        move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
+
+        $insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
+
+        $run_customer = mysqli_query($con,$insert_customer);
+
+        $sel_cart = "select * from cart where ip_add='$c_ip'";
+
+        $run_cart = mysqli_query($con,$sel_cart);
+
+        $check_cart = mysqli_num_rows($run_cart);
+
+        if($check_cart>0){
+
+            $_SESSION['customer_email']=$c_email;
+
+            echo"<script>alert('You have been Registered Successfully')</script>";
+
+            echo"<script>window.open('checkout.php','_self')</script>";
+
+        }else{
+
+            $_SESSION['customer_email']=$c_email;
+
+            echo"<script>alert('You have been Registered Successfully')</script>";
+
+            echo"<script>window.open('index.php','_self')</script>";
+
+        }
+
+    }
+
+?>

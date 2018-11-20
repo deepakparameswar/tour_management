@@ -135,7 +135,7 @@
 
             $pro_title = $row_products['product_title'];
 
-            $pro_price = $row_products['product_title'];
+            $pro_price = $row_products['product_price'];
 
             $pro_days = $row_products['days'];
 
@@ -157,7 +157,7 @@
 
                             <h3><a href='details.php?pro_id=$pro_id'>$pro_title</a></h3>
 
-                            <p class='price'>$pro_price</p>
+                            <p class='price'>$$pro_price</p>
 
                             <p class='buttons'>
 

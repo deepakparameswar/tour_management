@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include("includes/db.php");
 
     include("functions/functions.php");
@@ -29,7 +31,21 @@
         <div class="container"><!-- container starts -->
             <div class="col-md-6 offer"><!-- col-md-6 offer starts -->
                 <a href="#" class="btn btn-success btn-sm">
-                    Welcome :Guest
+                    
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+                            
+                            echo"Welcome :Guest";
+
+                        }else {
+                            
+                            echo "Welcome : ".$_SESSION['customer_email']. "";
+
+                        }
+
+                    ?>
+
                 </a>
                 <a href="#">
                     Sopping Cart Total Price: <?php total_price(); ?>, Total Item <?php items(); ?>
@@ -39,9 +55,34 @@
             <div class="col-md-6"> <!-- col-md-6 starts -->
                 <ul class="menu"><!-- menu starts -->
                     <li><a href="customer_register.php">Register</a></li> 
-                    <li><a href="checkout.php">My Account</a></li> 
+                    <li>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                
+                            }
+
+                        ?>
+                    </li> 
                     <li><a href="cart.php">Go to Cart</a></li>
-                    <li><a href="checkout.php">Login</a></li>
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+
+                            echo "<li><a href='login.php'>Login</a></li>";
+
+                        }else{
+
+                            echo "<li><a href='logout.php'>LogOut</a></li>";
+
+                        }
+                    ?>
                 </ul><!-- menu starts -->
             </div><!-- col-md-6 ends -->
         </div><!-- container ends -->
@@ -77,9 +118,21 @@
                         <li class="active">
                             <a href="Order_now.php">Order now</a>
                         </li>
-                        <li>
-                            <a href="checkout.php">My Account</a>
-                        </li>
+                        <li>                       <li>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                
+                            }
+
+                        ?>
+                        </li>>
                         <li>
                             <a href="cart.php">Shopping Cart</a>
                         </li>
@@ -91,7 +144,7 @@
 
                 <a href="cart.php" class="btn btn-primary navbar-btn right"> <!-- btn btn-primary navbar-btn right starts -->
                     <i class="fa fa-shopping-cart"></i>
-                    <span>4 items in cart</span>
+                    <span><?php items(); ?>items in cart</span>
                 </a> <!-- btn btn-primary navbar-btn right starts -->
 
                 <div class="navbar-collapse collapse right"> <!-- navbar-collapse collapse right starts -->
@@ -211,7 +264,7 @@
 
                                             <div class='text'>
 
-                                                <h3> <a href='details.php?pro_id'> $pro_title </a> </h3>
+                                                <h3> <a href='details.php?=$pro_id'> $pro_title </a> </h3>
 
                                                 <p class='price'>Price: $$pro_price </p>
 
@@ -311,21 +364,6 @@
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script>
-
-        $( function() {
-	   			$( "#shootdate1" ).datepicker({
-	   				minDate: 0
-	   			});
-	  		});
-
-    </script>
     
     </body>
 

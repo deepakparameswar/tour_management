@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include("includes/db.php");
 
     include("functions/functions.php");
@@ -28,7 +30,21 @@
         <div class="container"><!-- container starts -->
             <div class="col-md-6 offer"><!-- col-md-6 offer starts -->
                 <a href="#" class="btn btn-success btn-sm">
-                    Welcome :Guest
+                    
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+                            
+                            echo"Welcome :Guest";
+
+                        }else {
+                            
+                            echo "Welcome : ".$_SESSION['customer_email']. "";
+
+                        }
+
+                    ?>
+
                 </a>
                 <a href="#">
                     Sopping Cart Total Price: <?php total_price(); ?>, Total Item 2
@@ -38,9 +54,34 @@
             <div class="col-md-6"> <!-- col-md-6 starts -->
                 <ul class="menu"><!-- menu starts -->
                     <li><a href="customer_register.php">Register</a></li> 
-                    <li><a href="checkout.php">My Account</a></li> 
+                    <li>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                
+                            }
+
+                        ?>
+                    </li> 
                     <li><a href="cart.php">Go to Cart</a></li>
-                    <li><a href="checkout.php">Login</a></li>
+                    <?php
+
+                        if(!isset($_SESSION['customer_email'])){
+
+                            echo "<li><a href='login.php'>Login</a></li>";
+
+                        }else{
+
+                            echo "<li><a href='logout.php'>LogOut</a></li>";
+
+                        }
+                    ?>
                 </ul><!-- menu starts -->
             </div><!-- col-md-6 ends -->
         </div><!-- container ends -->
@@ -77,7 +118,19 @@
                             <a href="Order_now.php">Order now</a>
                         </li>
                         <li>
-                            <a href="checkout.php">My Account</a>
+                            <?php
+
+                            if(!isset($_SESSION['customer_email'])){
+
+                                echo"<a href='checkout.php'> My Account </a>";
+
+                            }else{
+
+                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                
+                            }
+
+                        ?>
                         </li>
                         <li>
                             <a href="cart.php">Shopping Cart</a>
@@ -204,6 +257,42 @@
 
 
                     </form><!-- form ends -->
+
+                    <?php
+
+                        if(isset($_POST['submit'])){
+
+                            // Admin Received email through this code
+
+                            $sender_name = $_POST['name'];
+
+                            $sender_email = $_POST['email'];
+
+                            $sender_subject = $_POST['subject'];
+
+                            $sender_message = $_POST['message'];
+
+                            $receiver_email = "koravangattu.deepak@gmail.com";
+
+                            mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
+
+                            //send email to sender
+
+                            $email = $_POST['email'];
+
+                            $subject = "Welcome to our sites";
+
+                            $msg = "I shall get you soon, thanks for sending us email";
+
+                            $from = "From: koravangattu.deepak@gmail.com";
+
+                            mail($email,$subject,$msg,$from);
+
+                            echo "<h2 align='center'> Your message has been sent successfullt</h2>";
+
+                        }
+
+                    ?>
             
                 </div><!-- box ends -->
             
