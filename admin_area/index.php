@@ -22,8 +22,26 @@
         $admin_id = $row_admin['admin_id'];
 
         $admin_name = $row_admin['admin_name'];
-        /*
-        $get_packages = "select * from packages";
+
+        $admin_email = $row_admin['admin_email'];
+
+        $admin_image = $row_admin['admin_image'];
+
+        $admin_country = $row_admin['admin_country'];
+
+        $admin_job = $row_admin['admin_job'];
+
+        $admin_contact = $row_admin['admin_contact'];
+
+        $admin_about = $row_admin['admin_about'];
+
+        
+
+        $get_products = "select * from products";
+        $run_products = mysqli_query($con,$get_products);
+        $count_products = mysqli_num_rows($run_products);
+        
+        $get_packages = "select * from packages_categories";
         $run_packages = mysqli_query($con,$get_packages);
         $count_packages = mysqli_num_rows($run_packages);
         
@@ -31,7 +49,11 @@
         $get_customers = "select * from customers";
         $run_customers = mysqli_query($con,$get_customers);
         $count_customers = mysqli_num_rows($run_customers);
-        */
+
+        $get_pending_orders = "select * from pending_orders";
+        $run_pending_orders = mysqli_query($con,$get_pending_orders);
+        $count_pending_orders = mysqli_num_rows($run_pending_orders);
+        
 
 ?>
 <!DOCTYPE html>

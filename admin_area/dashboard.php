@@ -45,8 +45,8 @@
 
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right starts -->
 
-                        <div class="huge">15</div>
-                        <div>Packages</div>
+                        <div class="huge"><?php echo $count_products ?></div>
+                        <div>Packages</div> 
 
                     </div><!-- col-xs-9 text-right ends -->
 
@@ -87,7 +87,7 @@
 
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right starts -->
 
-                        <div class="huge">9</div>
+                        <div class="huge"><?php echo $count_customers ?></div>
                         <div>Customers</div>
 
                     </div><!-- col-xs-9 text-right ends -->
@@ -129,7 +129,7 @@
 
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right starts -->
 
-                        <div class="huge">6</div>
+                        <div class="huge"><?php echo $count_packages ?></div>
                         <div>Package Categories</div>
 
                     </div><!-- col-xs-9 text-right ends -->
@@ -171,7 +171,7 @@
 
                     <div class="col-xs-9 text-right"><!-- col-xs-9 text-right starts -->
 
-                        <div class="huge">4</div>
+                        <div class="huge"><?php echo $count_pending_orders ?></div>
                         <div>Orders</div>
 
                     </div><!-- col-xs-9 text-right ends -->
@@ -227,7 +227,6 @@
                                 <th>Invoice_No:</th>
                                 <th>Package_ID:</th>
                                 <th>From_Date:</th>
-                                <th>To_Date:</th>
                                 <th>Status:</th>
                             </tr>
 
@@ -235,17 +234,78 @@
 
                         <tbody><!-- tbody starts -->
 
+                            <?php 
+                            
+                                $i=0;
+
+                                $get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
+
+                                $run_order = mysqli_query($con,$get_order);
+
+                                while ($row_order = mysqli_fetch_array($run_order)) {
+
+                                    $order_id = $row_order['order_id'];
+
+                                    $c_id = $row_order['customer_id'];
+
+                                    $invoice_no = $row_order['invoice_no'];
+
+                                    $product_id = $row_order['product_id'];
+
+                                    $s_date = $row_order['s_date'];
+
+                                    $qty = $row_order['qty'];
+
+                                    $order_status = $row_order['order_status'];
+
+                                    $i++;
+
+                            ?>
+                                
                             <tr>
 
-                                <td>1</td>
-                                <td>boo@gmail.com</td>
-                                <td>78045</td>
-                                <td>32</td>
-                                <td>5/8/2018</td>
-                                <td>5/10/2018</td>
-                                <td>Complete</td>
+                                <td><?php echo $i ?></td>
+                                <td>
+                                
+                                    <?php
+                                    
+                                        $get_customer = "select * from customers where customer_id='$c_id'";
+                                        
+                                        $run_customer = mysqli_query($con,$get_customer);
+
+                                        $row_customer = mysqli_fetch_array($run_customer);
+
+                                        $customer_email = $row_customer['customer_email'];
+
+                                        echo $customer_email;
+                                    
+                                    ?>
+
+                                </td>
+                                <td><?php echo $invoice_no ?></td>
+                                <td><?php echo $product_id ?></td>
+                                <td><?php echo $s_date ?></td>
+                                <td>
+                                    <?php
+                                        if($order_status == 'pending'){
+
+                                            echo $order_status='pending';
+
+                                        }else{
+
+                                            echo $order_status='complete';
+
+                                        }
+                                    ?>
+                                </td>
 
                             </tr>
+
+                            <?php
+
+                                } 
+
+                            ?>
 
                         </tbody><!-- tbody ends -->
 
@@ -274,11 +334,11 @@
 
                 <div class="thumb-info md-md"><!-- thumb-info md-md starts -->
 
-                    <img src="admin_images/admin.jpg"  class="rounded img-responsive" alt="Admin Img">
+                    <img src="admin_images/<?php echo $admin_image ?>"  class="rounded img-responsive" alt="Admin Img">
 
                     <div class="thumb-info-title"><!-- thumb-info-title starts -->
 
-                        <span class="thumb-info-inner">Deepak Parameswar</span>
+                        <span class="thumb-info-inner"><?php echo $admin_name ?></span>
                         <span class="thumb-info-type">Developer</span>
 
                     </div><!-- thumb-info-title ends -->
@@ -289,9 +349,9 @@
 
                     <div class="widget-content-expanded"><!-- widget-content-expanded starts -->
 
-                        <i class="fa fa-user"></i><span>Email: </span>deepak@gmail.com <br>
-                        <i class="fa fa-user"></i><span>Country: </span> india<br>
-                        <i class="fa fa-user"></i><span>Contact</span>+910000044774<br>
+                        <i class="fa fa-user"></i><span>Email: </span><?php echo $admin_email ?> <br>
+                        <i class="fa fa-user"></i><span>Country: </span><?php echo $admin_country ?> <br>
+                        <i class="fa fa-user"></i><span>Contact</span><?php echo $admin_contact ?> <br>
                                              
                     </div><!-- widget-content-expanded ends -->
 
@@ -299,7 +359,7 @@
 
                     <h5 class="text-muted">About</h5>
 
-                    <p>........................... ..................</p>
+                    <p><?php  echo $admin_about?></p>
 
                 </div><!--  md-md ends -->
 

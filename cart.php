@@ -79,7 +79,7 @@
 
                         }else{
 
-                            echo "<li><a href='logout.php'>LogOut</a></li>";
+                            echo "<li><a href='checkout.php'>LogOut</a></li>";
 
                         }
                     ?>

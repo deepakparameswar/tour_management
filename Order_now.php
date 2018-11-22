@@ -118,7 +118,7 @@
                         <li class="active">
                             <a href="Order_now.php">Order now</a>
                         </li>
-                        <li>                       <li>
+                        <li>          
                             <?php
 
                             if(!isset($_SESSION['customer_email'])){
@@ -127,7 +127,7 @@
 
                             }else{
 
-                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
                                 
                             }
 
