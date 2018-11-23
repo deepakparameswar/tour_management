@@ -320,6 +320,12 @@
 
                 </div><!-- text-right ends -->
 
+                <div class="text-left"><!-- text-right starts -->
+
+                    <a href="generate_document.php">Generate Document</a>
+
+                </div><!-- text-right ends -->
+
             </div><!-- panel-body ends -->
 
         </div><!-- panel panel-primary ends -->

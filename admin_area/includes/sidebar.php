@@ -68,7 +68,7 @@
                 <ul id="products" class="collapse">
                 
                     <li>
-                        <a href="index.php?insert_products">Insert Products</a>
+                        <a href="index.php?insert_product">Insert Products</a>
                     </li>
 
                     <li>
@@ -80,58 +80,6 @@
                 </ul>
 
             </li> <!-- li ends -->
-
-            <li> <!-- li starts -->
-            
-            <a href="#" data-toggle="collapse" data-target="#p_cat">
-                
-                <i class="fa fa-fw fa-pencil"></i>Products Categories
-
-                <i class="fa fa-fw fa-caret-down"></i>
-
-            </a>
-
-            <ul id="p_cat" class="collapse">
-            
-                <li>
-                    <a href="index.php?insert_p_cat">Insert Product Category</a>
-                </li>
-
-                <li>
-
-                    <a href="index.php?view_products">View Products Categories</a>
-                
-                </li>
-            
-            </ul>
-
-            </li> <!-- li ends -->
-
-            <li> <!-- li starts -->
-            
-            <a href="#" data-toggle="collapse" data-target="#cat">
-                
-                <i class="fa fa-fw fa-arrows-v"></i>Categories
-
-                <i class="fa fa-fw fa-caret-down"></i>
-
-            </a>
-
-            <ul id="cat" class="collapse">
-            
-                <li>
-                    <a href="index.php?insert_products">Insert Category</a>
-                </li>
-
-                <li>
-
-                    <a href="index.php?view_cats">View Categories</a>
-                
-                </li>
-            
-            </ul>
-
-        </li> <!-- li ends -->
 
 
         <li> <!-- li starts -->
@@ -188,38 +136,6 @@
             </a>
 
         </li>
-
-        <li> <!-- li starts -->
-            
-            <a href="#" data-toggle="collapse" data-target="#users">
-                
-                <i class="fa fa-fw fa-gear"></i>Users
-
-                <i class="fa fa-fw fa-caret-down"></i>
-
-            </a>
-
-            <ul id="users" class="collapse">
-            
-                <li>
-                    <a href="index.php?insert_user">Insert User</a>
-                </li>
-
-                <li>
-
-                    <a href="index.php?view_users">View Users</a>
-                
-                </li>
-
-                <li>
-
-                    <a href="index.php?user_profile=<?php echo $admin_id ?>">Edit Profile</a>
-
-                </li>
-            
-            </ul>
-
-        </li> <!-- li ends -->
 
         <li><!-- li starts -->
         

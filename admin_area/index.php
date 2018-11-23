@@ -4,9 +4,7 @@
     if(!isset($_SESSION['admin_email'])){
         echo"<script> window.open('login.php','_self') </script>";
     }
-    else
-    
-    {
+    else{
 ?>
 
 <?php
@@ -59,8 +57,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        <title>Admin Panel</title>
+
+        <title>Natours | Admin Panel</title>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         
@@ -87,6 +87,14 @@
                     <?php
                         if(isset($_GET['dashboard'])){
                             include("dashboard.php");
+                        }
+
+                        if(isset($_GET['insert_product'])){
+                            include("insert_product.php");
+                        }
+
+                        if(isset($_GET['view_products'])){
+                            include("view_products.php");
                         }
                     ?>
 

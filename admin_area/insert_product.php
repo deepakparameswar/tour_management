@@ -1,5 +1,11 @@
 <?php
-    include("includes/db.php");
+    
+    if(!isset($_SESSION['admin_email'])){
+
+        echo"<script> window.open('login.php','_self') </script>";
+
+    }else{
+
 ?>
 
 <!DOCTYPE html>
@@ -215,10 +221,6 @@
         
         </div><!-- row2 ends -->
 
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-
     </body>
 
 </html>
@@ -254,9 +256,15 @@
 
             echo"<script>alert('Product had been inserted sucessfully')</script>";
 
-            echo"<script>window.open('insert_product.php','_self')</script>";
+            echo"<script>window.open('index.php?view_products','_self')</script>";
             
         }
+    }
+
+?>
+
+<?php 
+
     }
 
 ?>
