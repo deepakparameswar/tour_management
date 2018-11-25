@@ -9,7 +9,9 @@
     $data = "customer id"."customer name"."\n";
 
 while($row = mysqli_fetch_array($run_doc)) {
+
   $data .= $row['customer_id'].",".$row['customer_name']."\n";
+  
 }
 
 header('Content-Type: application/csv');

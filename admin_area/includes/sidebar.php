@@ -81,26 +81,25 @@
 
             </li> <!-- li ends -->
 
-
-        <li> <!-- li starts -->
+            <li> <!-- li starts -->
             
-            <a href="#" data-toggle="collapse" data-target="#slides">
+            <a href="#" data-toggle="collapse" data-target="#products_categories">
                 
-                <i class="fa fa-fw fa-gear"></i>Slides
+                <i class="fa fa-fw fa-table"></i>Products Categories
 
                 <i class="fa fa-fw fa-caret-down"></i>
 
             </a>
 
-            <ul id="slides" class="collapse">
+            <ul id="products_categories" class="collapse">
             
                 <li>
-                    <a href="index.php?insert_slide">Insert Slide</a>
+                    <a href="index.php?insert_p_cat">Insert Products Categories</a>
                 </li>
 
                 <li>
 
-                    <a href="index.php?view_slides">View Slides</a>
+                    <a href="index.php?view_p_cat">View Products Categories</a>
                 
                 </li>
             

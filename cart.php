@@ -127,7 +127,7 @@
 
                             }else{
 
-                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
                                 
                             }
 

@@ -123,6 +123,26 @@
 
                                     </td>
 
+                                    <td>
+                                    
+                                        <a href="index.php?delete_product=<?php echo $pro_id; ?>">
+                                        
+                                            <i class="fa fa-trash-o"></i> Delete
+
+                                        </a>
+
+                                    </td>
+
+                                    <td>
+                                    
+                                        <a href="index.php?edit_product=<?php echo $pro_id; ?>">
+                                        
+                                            <i class="fa fa-pencil"></i> Edit
+
+                                        </a>
+
+                                    </td>
+
                                 
                                 </tr>
 
@@ -131,8 +151,13 @@
                             </tbody>
                         
 
-
                         </table>
+
+                        <div class="text-left"><!-- text-right starts -->
+
+                            <a href="generate_document.php">Generate Document</a>
+
+                        </div><!-- text-right ends -->
 
                     </div>
                 

@@ -256,15 +256,8 @@
 
                         <div class="form-group">
                         
-                            <label>Paypal</label>
-                            <input type="text" class="form-control" name="invoice_no" required>
-                        
-                        </div>
-
-                        <div class="form-group">
-                        
                             <label>Payment Date:</label>
-                            <input type="text" class="form-control" name="invoice_no" required>
+                            <input type="date" class="form-control" name="payment_date" required>
                         
                         </div>
 
@@ -301,7 +294,7 @@
 
                                 $complete = "Complete";
 
-                                $insert_payment = "insert into payment(invoice_no,amount,payment_mode,ref_no,code,payment_date) values('$invoice_no','$amount','$payment_mode','$ref_no','$code','$payment_date')";
+                                $insert_payment = "insert into payment(invoice_no,amount,payment_mode,ref_no,payment_date) values('$invoice_no','$amount','$payment_mode','$ref_no','$payment_date')";
 
                                 $run_payment = mysqli_query($con,$insert_payment);
 

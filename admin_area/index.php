@@ -96,6 +96,26 @@
                         if(isset($_GET['view_products'])){
                             include("view_products.php");
                         }
+
+                        if(isset($_GET['delete_product'])){
+                            include("delete_product.php");
+                        }
+
+                        if(isset($_GET['edit_product'])){
+                            include("edit_product.php");
+                        }
+
+                        if(isset($_GET['insert_p_cat'])){
+                            include("insert_p_cat.php");
+                        }
+
+                        if(isset($_GET['view_p_cat'])){
+                            include("view_p_cat.php");
+                        }
+
+                        if(isset($_GET['delete_p_cat'])){
+                            include("delete_p_cat.php");
+                        }
                     ?>
 
                 </div><!-- container-fluid ends -->

@@ -54,7 +54,7 @@
 
             </div><!-- panel-heading ends -->
             
-            <a href="index.php?view_packages">
+            <a href="index.php?view_products">
 
                 <div class="panel-footer"><!-- panel-footer starts -->
                     

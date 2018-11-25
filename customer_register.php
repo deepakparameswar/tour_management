@@ -8,6 +8,12 @@
 
 ?>
 
+<?php 
+
+    if(!isset($_SESSION['customer_email'])){
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -312,10 +318,23 @@
 
 <?php 
 
+    }else{
+
+        echo"<script>alert('Your are already logged in')</script>";
+
+        echo"<script>window.open('index.php','_self')</script>";
+    }
+
+?>
+
+<?php 
+    
+    $flag=1;
+
     if(isset($_POST['register'])){
 
         $c_name = $_POST['c_name'];
-
+        
         $c_email = $_POST['c_email'];
 
         $c_pass = $_POST['c_pass'];
@@ -325,6 +344,14 @@
         $c_city = $_POST['c_city'];
 
         $c_contact = $_POST['c_contact'];
+
+        if(!preg_match("/^\d{10}+$/", $c_contact)){
+
+            $flag = 0;
+  
+            echo '<script>alert("Only Numbers with 10 Digits required");</script>';
+
+        }
 
         $c_address = $_POST['c_address'];
 
@@ -338,34 +365,37 @@
 
         move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
 
-        $insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
+        if($flag==1){
 
-        $run_customer = mysqli_query($con,$insert_customer);
+            $insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
 
-        $sel_cart = "select * from cart where ip_add='$c_ip'";
+            $run_customer = mysqli_query($con,$insert_customer);
 
-        $run_cart = mysqli_query($con,$sel_cart);
+            $sel_cart = "select * from cart where ip_add='$c_ip'";
 
-        $check_cart = mysqli_num_rows($run_cart);
+            $run_cart = mysqli_query($con,$sel_cart);
 
-        if($check_cart>0){
+            $check_cart = mysqli_num_rows($run_cart);
 
-            $_SESSION['customer_email']=$c_email;
+            if($check_cart>0){
 
-            echo"<script>alert('You have been Registered Successfully')</script>";
+                $_SESSION['customer_email']=$c_email;
 
-            echo"<script>window.open('checkout.php','_self')</script>";
+                echo"<script>alert('You have been Registered Successfully')</script>";
 
+                echo"<script>window.open('checkout.php','_self')</script>";
+
+            }else{
+
+                $_SESSION['customer_email']=$c_email;
+
+                echo"<script>alert('You have been Registered Successfully')</script>";
+
+                echo"<script>window.open('index.php','_self')</script>";
+
+            }
         }else{
-
-            $_SESSION['customer_email']=$c_email;
-
-            echo"<script>alert('You have been Registered Successfully')</script>";
-
-            echo"<script>window.open('index.php','_self')</script>";
-
+            echo"<script>alert('You have been Registered UnSuccessfully')</script>";
         }
-
     }
-
 ?>
