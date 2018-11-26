@@ -288,13 +288,11 @@
 
                                 $ref_no = $_POST['ref_no'];
 
-                                $code = $_POST['code'];
-
-                                $payment_date = $_POST['date'];
+                                $payment_date = $_POST['payment_date'];
 
                                 $complete = "Complete";
 
-                                $insert_payment = "insert into payment(invoice_no,amount,payment_mode,ref_no,payment_date) values('$invoice_no','$amount','$payment_mode','$ref_no','$payment_date')";
+                                $insert_payment = "insert into payments(invoice_no,amount,payment_mode,ref_no,payment_date) values('$invoice_no','$amount','$payment_mode','$ref_no','$payment_date')";
 
                                 $run_payment = mysqli_query($con,$insert_payment);
 
@@ -313,9 +311,6 @@
                                     echo"<script>window.open('my_account.php?my_orders','_self')</script>";
 
                                 }
-
-
-
 
                             }
 

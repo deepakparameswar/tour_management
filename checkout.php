@@ -64,7 +64,7 @@
 
                             }else{
 
-                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
                                 
                             }
 
@@ -77,7 +77,7 @@
 
                         if(!isset($_SESSION['customer_email'])){
 
-                            echo "<li><a href='login.php'>Login</a></li>";
+                            echo "<li><a href='checkout.php'>Login</a></li>";
 
                         }else{
 

@@ -1,3 +1,60 @@
+
+<?php 
+
+$customer_session = $_SESSION['customer_email'];
+
+$get_customer = "select * from customers where customer_email='$customer_session'";
+
+$run_customer = mysqli_query($con,$get_customer);
+
+$row_customer = mysqli_fetch_array($run_customer);
+
+$customer_id = $row_customer['customer_id'];
+
+$get_orders = "select * from customer_orders where customer_id = '$customer_id'";
+
+$run_orders = mysqli_query($con,$get_orders);
+
+$total_records = mysqli_num_rows($run_orders);
+
+$f = (int)$total_records;
+
+$i = 0;
+
+while($row_orders = mysqli_fetch_array($run_orders)){
+
+    $order_id = $row_orders['order_id'];
+
+    $due_amount = $row_orders['due_amount'];
+
+    $invoice_no = $row_orders['invoice_no'];
+
+    $qty = $row_orders['qty'];
+
+    $s_date = $row_orders['s_date'];
+
+    $order_date =substr($row_orders['order_date'],0,11); // substr is an function that used to show only the date
+
+    $order_status = $row_orders['order_status'];
+
+    $i++;
+
+    if($order_status = 'pending'){
+
+        $order_status = "Unpaid";
+
+
+    }else{
+
+        $order_status = "Paid";
+
+    }
+
+}
+
+?>
+
+
 <center><!-- center starts -->
 
     <h1>My Orders</h1>
@@ -11,6 +68,10 @@
 </center><!-- center ends -->
 
 <hr>
+
+<?php 
+if($f >= 1){
+?>
 
 <div class="table-responsive"><!-- table-responsive starts -->
 
@@ -35,79 +96,36 @@
 
         <tbody><!-- tbody starts -->
 
-            <?php 
-
-                $customer_session = $_SESSION['customer_email'];
-
-                $get_customer = "select * from customers where customer_email='$customer_session'";
-
-                $run_customer = mysqli_query($con,$get_customer);
-
-                $row_customer = mysqli_fetch_array($run_customer);
-
-                $customer_id = $row_customer['customer_id'];
-
-                $get_orders = "select * from customer_orders where customer_id = '$customer_id'";
-
-                $run_orders = mysqli_query($con,$get_orders);
-
-                $i = 0;
-
-                while($row_orders = mysqli_fetch_array($run_orders)){
-
-                    $order_id = $row_orders['order_id'];
-
-                    $due_amount = $row_orders['due_amount'];
-
-                    $invoice_no = $row_orders['invoice_no'];
-
-                    $qty = $row_orders['qty'];
-
-                    $s_date = $row_orders['s_date'];
-
-                    $order_date =substr($row_orders['order_date'],0,11); // substr is an function that used to show only the date
-
-                    $order_status = $row_orders['order_status'];
-
-                    $i++;
-
-                    if($order_status = 'pending'){
-
-                        $order_status = "Unpaid";
-
-
-                    }else{
-
-                        $order_status = "Paid";
-
-                    }
-
-                }
-
-
-
-            ?>
-        
-            <tr>
+                <tr>
             
-                <td><?php echo $i; ?></td>
-                <td><?php echo $due_amount; ?></td>
-                <td><?php echo $invoice_no; ?></td>
-                <td><?php echo $qty; ?></td>
-                <td><?php echo $order_date; ?></td>
-                <td><?php echo $s_date; ?></td>
-                <td><?php echo $order_status; ?></td>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $due_amount; ?></td>
+                    <td><?php echo $invoice_no; ?></td>
+                    <td><?php echo $qty; ?></td>
+                    <td><?php echo $order_date; ?></td>
+                    <td><?php echo $s_date; ?></td>
+                    <td><?php echo $order_status; ?></td>
 
-                <td>
+                    <td>
                 
-                    <a href="confirm.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm">Confirm If Paid</a>
+                        <a href="confirm.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm">Confirm If Paid</a>
 
-                </td>
+                    </td>
             
-            </tr>
-        
+                </tr>
+
         </tbody><!-- tbody ends -->
     
     </table><!-- table table-bordered table-hover ends -->
 
 </div><!-- table-responsive ends -->
+
+<?PHP }else{ ?>
+
+<?php echo"
+<center>
+<h3>At Yet There is No Orders</h3>
+</center>
+";
+}
+?>

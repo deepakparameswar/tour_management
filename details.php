@@ -60,6 +60,7 @@
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <link href="styles/bootstrap.min.css" rel="stylesheet">
+        <link href="styles/jquery.datetimepicker.css" rel="stylesheet">
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
@@ -174,7 +175,7 @@
 
                             }else{
 
-                                echo"<a href='customer/my_account.php?my_orders'>Mu Account </a>";
+                                echo"<a href='customer/my_account.php?my_orders'>My Account </a>";
                                 
                             }
 
@@ -334,7 +335,7 @@
 
                                             <div class='col-md-7'>
 
-                                                <input required type='date' name='shootdate' id='shootdate1' title='Choose your desired date'/>
+                                                <input type='text' name='shootdate' id='shootdate1' title='Choose your desired date' required/>
                                                 
                                             </div>
 
@@ -436,10 +437,22 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
+    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.datetimepicker.full.js"></script>
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
 
+    <script>
+
+        $("#shootdate1").datetimepicker({
+            timepicker:false,
+            formatDate:'Y/m/d',
+            minDate:0
+
+        });
+
+    </script>
 
 
     </body>
