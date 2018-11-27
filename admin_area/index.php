@@ -85,6 +85,7 @@
                 <div class="container-fluid"><!-- container-fluid starts -->
 
                     <?php
+
                         if(isset($_GET['dashboard'])){
                             include("dashboard.php");
                         }
@@ -116,6 +117,19 @@
                         if(isset($_GET['delete_p_cat'])){
                             include("delete_p_cat.php");
                         }
+
+                        if(isset($_GET['view_payments'])){
+                            include("view_payment.php");
+                        }
+
+                        if(isset($_GET['view_orders'])){
+                            include("view_orders.php");
+                        }
+
+                        if(isset($_GET['view_customers'])){
+                            include("view_customers.php");
+                        }
+                        
                     ?>
 
                 </div><!-- container-fluid ends -->

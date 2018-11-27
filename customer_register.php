@@ -81,7 +81,7 @@
 
                         if(!isset($_SESSION['customer_email'])){
 
-                            echo "<li><a href='login.php'>Login</a></li>";
+                            echo "<li><a href='checkout.php'>Login</a></li>";
 
                         }else{
 
@@ -334,6 +334,14 @@
     if(isset($_POST['register'])){
 
         $c_name = $_POST['c_name'];
+
+        if(!preg_match("/^[a-zA-Z'-]+$/", $c_name)){
+        
+            $flag = 0;
+
+            echo '<script>alert("plz enter a valid name!!");</script>';
+
+        }
         
         $c_email = $_POST['c_email'];
 
@@ -341,7 +349,23 @@
 
         $c_country = $_POST['c_country'];
 
+        if(!preg_match("/^[a-zA-Z'-]+$/", $c_country)){
+        
+            $flag = 0;
+
+            echo '<script>alert("plz enter a valid country!!");</script>';
+
+        }
+
         $c_city = $_POST['c_city'];
+
+        if(!preg_match("/^[a-zA-Z'-]+$/", $c_city)){
+        
+            $flag = 0;
+
+            echo '<script>alert("plz enter a valid city name!!");</script>';
+
+        }
 
         $c_contact = $_POST['c_contact'];
 
@@ -349,7 +373,7 @@
 
             $flag = 0;
   
-            echo '<script>alert("Only Numbers with 10 Digits required");</script>';
+            echo '<script>alert("Only Numbers with 10 Digits required!!");</script>';
 
         }
 

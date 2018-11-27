@@ -288,7 +288,7 @@
 
                             mail($email,$subject,$msg,$from);
 
-                            echo "<h2 align='center'> Your message has been sent successfullt</h2>";
+                            echo "<h2 align='center'> Your message has been sent successfully</h2>";
 
                         }
 
